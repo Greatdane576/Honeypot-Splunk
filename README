@@ -1,4 +1,4 @@
-Honeypot in Linus & Splunk + OSINT Analysis
+## Honeypot in Linus & Splunk + OSINT Analysis
 
 Threat actors continuously scour the internet for open ports and vulnerable applications. To demonstrate this, I created my own Honeypot using OpenAI/ChatGPT. The honeypot ran for at least 5 days, after logging results I analyzed its output in Splunk.
 
@@ -7,9 +7,7 @@ I chose the following ports at random to expose to the open internet:
 
 Port 3389 (RDP): Remote Desktop Protocol. Allows remote access to a Windows computer's desktop.
 
-
 Port 34567: Commonly used for video surveillance systems and IP cameras, particularly Chinese brands.
-
 
 Port 8000: Frequently used for web servers and HTTP-based applications. Can also be used for other services like remote administration or streaming.
 
