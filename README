@@ -1,1 +1,51 @@
+Honeypot in Linus & Splunk + OSINT Analysis
 
+Threat actors continuously scour the internet for open ports and vulnerable applications. To demonstrate this, I created my own Honeypot using OpenAI/ChatGPT. The honeypot ran for at least 5 days, after logging results I analyzed its output in Splunk.
+
+I chose the following ports at random to expose to the open internet:
+
+
+Port 3389 (RDP): Remote Desktop Protocol. Allows remote access to a Windows computer's desktop.
+
+
+Port 34567: Commonly used for video surveillance systems and IP cameras, particularly Chinese brands.
+
+
+Port 8000: Frequently used for web servers and HTTP-based applications. Can also be used for other services like remote administration or streaming.
+
+
+
+Comparison between ports 3389, 34567, and 8000
+While these ports serve distinct purposes, they can indirectly interact within a network or system:
+Remote Administration and Monitoring:
+
+
+Port 3389 (RDP): An administrator could use RDP to remotely access a server or workstation.
+Port 8000: A web-based monitoring tool could be hosted on port 8000, allowing the administrator to remotely view system logs, performance metrics, or security alerts.
+Port 34567: In a surveillance scenario, the administrator could use RDP to access a server running surveillance software and then view live feeds or recorded footage through a web interface hosted on port 8000.
+
+
+Web-Based Access to IP Cameras:
+
+
+Port 34567: IP cameras typically use this port for streaming video.
+Port 8000: A web server could be configured to provide a user interface for accessing and controlling these cameras. This interface might be accessible via a web browser, using port 8000.
+Key Point: The direct interaction between these ports is limited. However, they often coexist in network environments, especially in scenarios involving remote administration, surveillance, and web-based services. The specific interactions depend on the network configuration and the services running on each port.
+
+
+
+
+Honeypot Results & Analysis
+
+Using Splunk I was able to visualize number of times each port was targetted, including when and where, and finally I was able to rank each unique IP address by threat count. 
+
+Percentage of attacks from Country origin - https://imgur.com/qJtNYFz
+Ports exposed to the public internet over six days - https://imgur.com/O4DEg0R
+Source IP by threat count - city, country, region - https://imgur.com/c4DJjp7
+
+
+
+I was able to enhance my findings by leveraging open-source intelligence tools, including VirusTotal, AbuseIPDB, and GreyNoise, to gain deeper insights into the IP addresses that connected to my Honeypot. Here are findings for the top three most aggressive unique IP addresses. 
+
+
+Top 3 Source IPs
